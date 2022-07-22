@@ -19,11 +19,14 @@ int main()
     printf("Enter array size\n");
     scanf("%d",&n);
     int arr[n];
-    printf("Enter array elements\n");
     for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
+        arr[i] = rand();
     }
-    printf("Enter element to be searched\n");
+    printf("The array elements are:");
+    for(int i=0;i<n;i++){
+        printf("\n%d",arr[i]);
+    }
+    printf("\nEnter element to be searched\n");
     scanf("%d",&s);
     start=clock();
     int res= binary(s,arr,0,n-1);
