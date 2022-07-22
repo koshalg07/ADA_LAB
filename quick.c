@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<time.h>
 void quicksort(int arr[25],int first,int last)
 {
 
@@ -32,7 +33,7 @@ void quicksort(int arr[25],int first,int last)
 int main()
 {
     int i, n;
-    time_t st,ed;
+    clock_t st,ed;
     printf("ENTER ARRAY SIZE =");
     scanf("%d",&n);
     int arr[n];
@@ -42,9 +43,9 @@ int main()
         arr[j] = (rand() % 10000) + 1;
     }
     printf("\n");
-    st = time(NULL);
+    st = clock();
     quicksort(arr,0,n-1);
-    ed = time(NULL);
+    ed = clock();
 
     printf("\nSORTED ELEMNETS = ");
     for(i=0; i<n; i++)

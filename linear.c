@@ -3,13 +3,16 @@
 #include<time.h>
 void main()
 {
-    int a[500];
+    int n;
+    printf("Enter size of array:\n");
+    scanf("%d",&n);
+    int a[n];
     time_t st,ed;
     int ele,flag = 0;
 
-    for(int i = 0;i<500;i++)
+    for(int i = 0;i<n;i++)
     {
-        a[i] = rand()%10000 + 1;
+        a[i] = rand();
     }
 
     for(int k = 0;k<500;k++)
@@ -22,7 +25,7 @@ void main()
     scanf("%d",&ele);
     st = time(NULL);
 
-    for(int j = 0;j<500;j++)
+    for(int j = 0;j<n;j++)
     {
         for(int p = 0;p<10000000;p++);
         if(a[j] == ele)

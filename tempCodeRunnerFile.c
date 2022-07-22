@@ -1,46 +1,54 @@
-#include <stdio.h>
-#include <time.h>
-int binary(int element,int arr[], int start_index, int end_index){
-   if (end_index >= start_index){
-      int middle = start_index + (end_index - start_index )/2;
-      if (arr[middle] == element)
-         return middle;
-      if (arr[middle] > element)
-         return binary( element,arr, start_index, middle-1);
-      return binary(element,arr, middle+1, end_index);
-   }
-   return -1;
+#include<stdio.h>
+void quicksort(int arr[25],int first,int last)
+{
+
+    int i, j, pivot, temp;
+    if(first<last)
+    {
+        pivot=first;
+        i=first;
+        j=last;
+        while(i<j)
+        {
+            while(arr[i]<=arr[pivot]&&i<last)
+                i++;
+            while(arr[j]>arr[pivot])
+                j--;
+            if(i<j)
+            {
+                temp=arr[i];
+                arr[i]=arr[j];
+                arr[j]=temp;
+            }
+        }
+        temp=arr[pivot];
+        arr[pivot]=arr[j];
+        arr[j]=temp;
+        for(int p = 0; p<1000000; p++);
+        quicksort(arr,first,j-1);
+        quicksort(arr,j+1,last);
+    }
 }
 int main()
 {
-    clock_t start,end;
-    int n;
-    int s;
-    printf("Enter array size\n");
+    int i, n;
+    time_t st,ed;
+    printf("ENTER ARRAY SIZE =");
     scanf("%d",&n);
     int arr[n];
-    for(int i=0;i<n;i++){
-        arr[i] = rand();
-    }
-    printf("The array elements are:");
-    for(int i=0;i<n;i++){
-        printf("\n%d",arr[i]);
-    }
-    printf("\nEnter element to be searched\n");
-    scanf("%d",&s);
-    start=clock();
-    int res= binary(s,arr,0,n-1);
-    if(res==-1)
+    printf("ENTER ARRAY ELEMENTS");
+    for (int j = 0; j < n; j++)
     {
-        printf("Element not found");
+        arr[j] = (rand() % 10000) + 1;
     }
-    else
-    printf("Found in position %d", res);
-    for(int i=0;i<1000;i++){
-        for(int j=0;j<1000000;j++){
-           
-        }
-    }
-    end=clock();
-    printf("\ntime taken %f ", difftime(end,start)/CLOCKS_PER_SEC);
+    printf("\n");
+    st = time(NULL);
+    quicksort(arr,0,n-1);
+    ed = time(NULL);
+
+    printf("\nSORTED ELEMNETS = ");
+    for(i=0; i<n; i++)
+        printf(" %d",arr[i]);
+    printf("\n TIME TAKEN = %f \n",difftime(ed,st));
+    return 0;
 }

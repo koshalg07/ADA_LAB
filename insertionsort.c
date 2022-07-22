@@ -1,39 +1,44 @@
-#include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
+#include <time.h>
 void insertionSort(int arr[], int n)
 {
-    int i, val, j;
-    for (i = 1; i < n; i++)
-    {
-        val = arr[i];
+    int i, key, j;
+    for (i = 1; i < n; i++) {
+        key = arr[i];
         j = i - 1;
-        while (j >= 0 && arr[j] > val)
-        {
+        while (j >= 0 && arr[j] > key) {
             arr[j + 1] = arr[j];
             j = j - 1;
         }
-        arr[j + 1] = val;
+        arr[j + 1] = key;
     }
 }
 
 int main()
 {
     int n;
-    printf("ENTER SIZE OF N= ");
+    clock_t start,end;
+    printf("Enter the size of the array\n");
     scanf("%d",&n);
+    
     int arr[n];
-    for (int j = 0; j < n; j++)
-        {
-            arr[j] = (rand() % 1000) + 1;
-        }
-    printf("\nArray element before insertion sort:");
     for(int i=0;i<n;i++){
-        printf("\n%d",arr[i]);
+        arr[i]=rand();
     }
+    printf("\nthe elements of the array\n");
+    for(int i=0;i<n;i++){
+        printf(" %d ",arr[i]);
+    }
+    
+ start=clock();
     insertionSort(arr, n);
-    printf("After insertion sort");
-    for (int i = 0; i < n; i++)
-        printf("\n%d ", arr[i]);
+    end=clock();
+    
+    printf("\Sorted array: ");
+    for (int j = 0; j < n; j++)
+        printf("%d ", arr[j]);
+    printf("\n");
+ printf("\ntime taken %f ", difftime(end,start));
+
     return 0;
 }

@@ -79,7 +79,7 @@ clock_t st,ed;
 mergeSort(arr, 0, n - 1);
 ed = clock();
 printf("\n %lf",((double)(ed-st))/CLOCKS_PER_SEC);
-printf("SORTED ARRAY IS\n");
+printf("\nSORTED ARRAY IS\n");
 printArray(arr, n);
 return 0;
 }
