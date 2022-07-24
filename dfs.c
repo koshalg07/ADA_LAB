@@ -1,16 +1,17 @@
 #include<conio.h>
 #include<stdio.h>
-int a[20][20],reach[20],n;
+int a[20][20],visited[20],n;
 void dfs(int v)
 {
     int i;
-    reach[v]=1;
-    for(i=1; i<=n; i++)
-        if(a[v][i] && !reach[i])
+    visited[v]=1;
+    for(i=1; i<=n; i++){
+        if(a[v][i] && !visited[i])
         {
             printf("\n %d->%d",v,i);
             dfs(i);
         }
+    }
 }
 void main()
 {
@@ -19,7 +20,7 @@ void main()
     scanf("%d",&n);
     for(i=1; i<=n; i++)
     {
-        reach[i]=0;
+        visited[i]=0;
         for(j=1; j<=n; j++)
             a[i][j]=0;
     }
@@ -31,7 +32,7 @@ void main()
     printf("\n");
     for(i=1; i<=n; i++)
     {
-        if(reach[i])
+        if(visited[i])
             count++;
     }
     if(count==n)

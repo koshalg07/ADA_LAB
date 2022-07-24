@@ -30,7 +30,7 @@ void main()
         for(int p = 0;p<10000000;p++);
         if(a[j] == ele)
         {
-            printf("\n ELEMENT FOUND");
+            printf("\n ELEMENT FOUND AT %d",j);
             flag = 1;
             break;
         }

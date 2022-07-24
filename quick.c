@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<time.h>
-void quicksort(int arr[25],int first,int last)
+void quicksort(int arr[],int first,int last)
 {
 
     int i, j, pivot, temp;
