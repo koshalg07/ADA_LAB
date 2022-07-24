@@ -15,7 +15,7 @@ void main()
         a[i] = rand();
     }
 
-    for(int k = 0;k<500;k++)
+    for(int k = 0;k<n ;k++)
     {
         printf("%d,",a[k]);
     }
