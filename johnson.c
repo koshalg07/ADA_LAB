@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
-int flag = 0;
+
+
 int swap(int *a,int *b)
 {
      int t = *a;
@@ -15,51 +16,40 @@ int search(int arr[],int num,int mobile)
     {
         if(arr[g] == mobile)
         {
-             return g+1;
-        }
-        else
-        {
-         flag++;
+             return g;
         }
     }
     return -1;
 }
+
 int find_Moblie(int arr[],int d[],int num)
 {
     int mobile = 0;
-    int mobile_p = 0;
+
     int i;
     for(i=0;i<num;i++)
     {
         if((d[arr[i]-1] == 0) && i != 0)
         {
-            if(arr[i]>arr[i-1] && arr[i]>mobile_p)
+            if(arr[i]>arr[i-1] && arr[i]>mobile)
             {
-                mobile = arr[i];
-                mobile_p = mobile;
+                mobile =  arr[i];
+
             }
-            else
-            {
-                flag++ ;    }
+
         }
         else if((d[arr[i]-1] == 1) & i != num-1)
         {
-            if(arr[i]>arr[i+1] && arr[i]>mobile_p)
+            if(arr[i]>arr[i+1] && arr[i]>mobile)
             {
                 mobile = arr[i];
-                mobile_p = mobile;
+
             }
-            else
-            {
-                flag++;
-            }
+
         }
-        else
-            {
-                flag++;
-            }
+
     }
-    if((mobile_p == 0) && (mobile == 0))
+    if(mobile == 0)
         return 0;
     else
         return mobile;
@@ -69,10 +59,10 @@ void permutations(int arr[],int d[],int num)
     int i;
     int mobile = find_Moblie(arr,d,num);
     int pos = search(arr,num,mobile);
-    if(d[arr[pos-1]-1]==0)
-        swap(&arr[pos-1],&arr[pos-2]);
+    if(d[arr[pos]-1]==0)
+        swap(&arr[pos],&arr[pos-1]);
     else
-        swap(&arr[pos-1],&arr[pos]);
+        swap(&arr[pos],&arr[pos+1]);
     for(int i=0;i<num;i++)
     {
         if(arr[i] > mobile)
