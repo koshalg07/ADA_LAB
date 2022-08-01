@@ -63,7 +63,7 @@ void permutations(int arr[],int d[],int num)
         swap(&arr[pos],&arr[pos-1]);
     else
         swap(&arr[pos],&arr[pos+1]);
-    for(int i=0;i<num;i++)
+    for(int i=0;i<num;i++)3
     {
         if(arr[i] > mobile)
         {
