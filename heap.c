@@ -83,6 +83,8 @@ for(int i=0;i<n;i++){
 
   start=clock();
   for(int i=0;i<9999;i++);
+  for(int i=0;i<9999;i++);
+  for(int i=0;i<9999;i++);
   heapSort(arr,n);
   end=clock();
  

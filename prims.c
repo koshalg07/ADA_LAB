@@ -15,8 +15,8 @@ int main()
     scanf("%d",&n);
     printf("\nEnter the cost of  adjacency matrix:\n");
     for(i=0;i<n;i++)
-    for(j=0;j<n;j++)
-    scanf("%d",&G[i][j]);
+        for(j=0;j<n;j++)
+            scanf("%d",&G[i][j]);
     total_cost=prims();
     printf("\nspanning tree matrix:\n");
     for(i=0;i<n;i++)
